@@ -6,16 +6,10 @@ import serial
 import time
 Data={}
 commands={}
-# commands.add({'$VNb'RRG,1*9527'})'
 cmd_model=b'$VNRRG,1*9527'
 def write(ser,cmd):
-	"""Write a command to the sensor """
-	# if b"\r" in cmd:
-	# print(">",str(cmd))
 	ser.write(cmd)
-	
 
-	# time.sleep(1)
 def get_serial_number(ser):
 	ser.reset_input_buffer()
 	cmd=b'$VNRRG,03*XX\r\n'
@@ -49,30 +43,3 @@ def model_name(ser):
 	return x
 
 
-
-
-# for i in range(50):
-# 	if i <10:
-# 		cmd=b'$VNRRG,0'+str(i).encode("ascii")+b"*XX\r"
-# 	else:
-# 		cmd=b'$VNRRG,'+str(i).encode("ascii")+b"*XX\r"
-# 	write(cmd)
-# 	# time.sleep(1)
-# 	print(ser.readline().strip())
-
-
-
-
-
-
-
-
-# stop_async()
-# write(b'$VNRRG,04*XX')
-
-# get_serial_number(ser)
-# # print(read_imu(ser))
-
-# model_name(ser)
-# # 
-# ser.close()
